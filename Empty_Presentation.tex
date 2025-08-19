@@ -1,0 +1,128 @@
+\documentclass[serif,10pt, aspectratio=169]{beamer}
+% aspectratio = 169 means 16:9; 43 means 4:3 etc. 
+
+%standard packages and math
+\usepackage{pgfpages}
+\usepackage{amsmath,amsfonts}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{multimedia}
+\usepackage{algorithm} % optional, for algorithms
+\usepackage{bbm}
+
+% Mines colors & personalized definitions
+\usepackage{xcolor}
+\input{Definitions.tex}
+\input{MinesColors.tex}
+
+%bibliography settings
+\usepackage[backend=biber, style=numeric, sorting = none]{biblatex}
+
+
+
+%------------------------------------------ Title Page ---------------------------------------%
+\title[Purpose of Talk]{Some Title \\ That can be Multiple Lines}
+\subtitle{Poster Speed Talk (subtitle here optional)}
+\author[Digger, Donkey] {Ore Digger\inst{1} \and Blaster Donkey\inst{1}}
+\institute[Mines]
+{\inst{1}Department of Applied Mathematics and Statistics, \protect\\ Colorado School of Mines
+}
+\vspace{1em}
+
+\date[Extremes2024] {NSF Extremes Workshop\\ Nov 6th, 2024}
+
+
+
+%------------------------------------------- Presentation Setting ------------------------%
+\usetheme{Madrid}
+\setbeamercolor{section in head/foot}{fg=blasterBlue, bg=white}
+\usecolortheme[named=blasterBlue]{structure}
+\setbeamertemplate{footline}[frame number]
+\makeatletter
+\setbeamertemplate{headline}{%
+    \begin{beamercolorbox}[ht=2.75ex,dp=3.75ex]{section in head/foot}
+        \insertnavigation{\paperwidth}
+    \end{beamercolorbox}%
+}%
+\makeatother
+
+%---------------------------------------------------
+\begin{document}
+
+
+\begin{frame}
+    \maketitle
+\end{frame}
+
+\section{Background}
+\begin{frame}
+	\frametitle{Motivation}
+	Bottleneck of fast approximate conditional simulation scheme:
+	\pause
+	\begin{algorithm}[H] 
+	\caption*{\textbf{Algorithm 1} Fast Conditional Simulation for Large Spatial Data}
+	\textbf{Input: } \text{Spatial data $\by$, their locations $\locs^O$, and prediction grid locations $\locs^G$.}\\
+	\textbf{Output: } \text{Ensemble of $l$ conditional simulations $\bv = \{\bv_1, \dots, \bv_l\}$.} \pause
+		\begin{enumerate}
+		\item[(1)] Krig to grid $\locs^G$ using data $\by$, label it $\hat{g}(\locs^G)$. \pause
+		\item[(2)] Simulate spatial process $g^S$ at the union $\locs^G \cup \locs^O$ \textcolor{envrGreen}{via CE + Local Kriging. \footnote{Bailey et. al. 2022}} \pause
+		\end{enumerate}
+		\noindent \textbf{For $j = 1:l$}
+		\begin{enumerate}
+		\item[(3)] Form synthetic data $\by^S$, where $\text{y}_i^S = g^S(\bs^ O_i) + \epsilon_i^S$. \pause
+		\item[(4)] Krig to grid $\locs^G$ using synthetic data, label it $\hat{g}^S(\locs^G)$ \textcolor{coloradoRed}{via method in this poster}. \pause
+		\item[(5)] Obtain the $j$-th conditional simulation as $\bv_j = \hat{g}(\locs^G) + \left( g^S(\locs^G) - \hat{g}^S(\locs^G)\right)$. 
+		\end{enumerate}
+		\noindent \textbf{End}
+		\vspace{1pt}
+	\end{algorithm}
+\end{frame}
+
+    
+
+\begin{frame}
+	\frametitle{Results}
+	\begin{columns}[T]
+    % Left column
+    pause
+    
+    \begin{column}{.01\textwidth} 
+        \rule{.1mm}{0.7\textheight}
+    \end{column}
+
+    % Right column
+    \begin{column}{0.47\textwidth}
+    \textbf{Performance}
+    \begin{itemize}
+	\item First order convergence with $\nu \geq 1$ for Matern kernels.
+	\item 5x faster than universal kriging on large grid. 
+    \end{itemize} \pause
+    \textbf{Next Steps}
+    \begin{itemize}
+    	\item Analytical error bounds via kernel approximation methods.
+	\item Implement co-primes for speed up. 
+	\item Integrate into fast conditional simulation in \texttt{fields}.
+    \end{itemize} 
+    \end{column}
+\end{columns}
+
+\end{frame}
+
+
+
+%---------------------------------------------------
+
+
+
+%\appendix
+
+%\begin{frame}
+%\frametitle{References}
+%	\AtNextBibliography{\tiny}
+%	\printbibliography
+%\end{frame}
+
+
+
+\end{document}

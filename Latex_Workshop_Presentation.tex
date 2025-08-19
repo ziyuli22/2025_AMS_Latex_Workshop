@@ -1,0 +1,160 @@
+\documentclass[serif,12pt, aspectratio=169]{beamer}
+% aspectratio = 169 means 16:9; 43 means 4:3 etc. 
+
+%standard packages and math
+\usepackage{pgfpages}
+\usepackage{amsmath,amsfonts}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{multimedia}
+\usepackage{algorithm} % optional, for algorithms
+\usepackage{bbm}
+
+% Mines colors & personalized definitions
+\usepackage{xcolor}
+\input{Definitions.tex}
+\input{MinesColors.tex}
+
+%bibliography settings
+\usepackage[backend=biber, style=numeric, sorting = none]{biblatex}
+
+
+
+%------------------------------------------ Title Page ---------------------------------------%
+\title[AMS Latex Workshop 2025]{2025 AMS Bootcamp \\ Latex Workshop}
+%\subtitle{Poster Speed Talk}
+\author[Li] {Ziyu Li\inst{1}}
+\institute[Mines]
+{\inst{1}Department of Applied Mathematics and Statistics, \protect\\ Colorado School of Mines
+}
+\vspace{1em}
+
+\date[Bootcamp] {Wednesday \\ August 20th, 2025}
+
+
+
+%------------------------------------------- Presentation Setting ------------------------%
+\usetheme{Madrid}
+\setbeamercolor{section in head/foot}{fg=blasterBlue, bg=white}
+\usecolortheme[named=blasterBlue]{structure}
+\setbeamertemplate{footline}[frame number]
+\makeatletter
+\setbeamertemplate{headline}{%
+    \begin{beamercolorbox}[ht=2.75ex,dp=3.75ex]{section in head/foot}
+        \insertnavigation{\paperwidth}
+    \end{beamercolorbox}%
+}%
+\makeatother
+
+%---------------------------------------------------
+\begin{document}
+
+
+\begin{frame}
+    \maketitle
+\end{frame}
+
+%----------------------------- Introduction Section ----------------------%
+\section{Introduction}
+\begin{frame}
+	\frametitle{What is it?}
+	\pause
+	Typesetting software originally written in the 1980s. 
+	\vspace{0.25cm}
+	\pause 
+	\begin{columns}[T]
+		\begin{column}{0.46\textwidth}
+		\textcolor{envrGreen}{Why people love it:}
+			\begin{itemize}
+				\item[\color{blasterBlue}{$\bullet$}]  Format only once so you can focus on content. 
+				\item[\color{blasterBlue}{$\bullet$}]  Minimum and flexible citation management. 
+				\item[\color{blasterBlue}{$\bullet$}]  Typing math.
+				\item[\color{blasterBlue}{$\bullet$}]  Expected for math journal submissions. 
+			\end{itemize}
+		\end{column}
+		
+		\begin{column}{.01\textwidth} 
+       		 \rule{.1mm}{0.65\textheight}
+   		 \end{column}
+		 
+		\pause
+		\begin{column}{0.46\textwidth}
+		\textcolor{coloradoRed}{Why people hesitate to use it:}
+		\begin{itemize}
+				\item[\color{blasterBlue}{$\diamond$}]  Steep learning curve when getting started, good templates?
+				\item[\color{blasterBlue}{$\diamond$}] Overleaf renders too slowly and sometimes full of bugs. 
+				\item[\color{blasterBlue}{$\diamond$}]  Different bibliography options and compliers are confusing.
+				\item[\color{blasterBlue}{$\diamond$}]  Working with scientists that prefer Word or Google Doc. 
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Editor Software Options}
+	\pause
+	\textbf{Online Option: \href{http://www.overleaf.com}{Overleaf}}
+	\pause
+	\begin{itemize}
+		\item Collaborate with others in real time. 
+		\pause
+		\item Shrinks learning curve by automatically suggesting commands. 
+		\pause
+		\item Sometimes resolve errors automatically or highlight incorrect lines.
+		\pause
+		\item Great for beginners!
+	\end{itemize}
+	\pause
+	\textbf{Local Option: \href{https://pages.uoregon.edu/koch/texshop/installingtexshop.html}{TeXShop} for Mac, TeXworks, or VSCode}
+	\pause
+	\begin{itemize}
+		\item Much faster than Overleaf and can handle large documents. 
+		\pause
+		\item More control over your document and easily integrated with code outputs. 
+		\pause
+		\item Do not need the internet to work. 
+		\pause
+		\item Great for thesis, projects, books, etc. 
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Agenda}
+	\pause
+	\begin{enumerate}
+		\item \textbf{Setup} \\
+		Go to GitHub link: \url{github.com/ziyuli22/2025_AMS_Latex_Workshop} \\
+		and download folder. Log into Overleaf account, upload folder. 
+		\item \textbf{Common homework commands \& expectations}
+		\item \textbf{Poster example}
+		\item \textbf{Presentation example}
+	\end{enumerate}
+\end{frame}
+
+%----------------------------- Homework Template Section ----------------------%
+
+\section{Homework Template}
+\begin{frame}
+	\frametitle{Results}
+	
+\end{frame}
+
+
+
+%---------------------------------------------------
+
+
+
+%\appendix
+
+%\begin{frame}
+%\frametitle{References}
+%	\AtNextBibliography{\tiny}
+%	\printbibliography
+%\end{frame}
+
+
+
+\end{document}
