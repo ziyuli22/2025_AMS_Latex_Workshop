@@ -19,7 +19,7 @@
 %bibliography settings
 \usepackage[backend=biber, style=numeric, sorting = none]{biblatex}
 
-
+\addbibresource{Sources.bib}
 
 %------------------------------------------ Title Page ---------------------------------------%
 \title[AMS Latex Workshop 2025]{2025 AMS Bootcamp \\ Latex Workshop}
@@ -47,6 +47,15 @@
 }%
 \makeatother
 
+% This adds and outline, if you wish
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
 %---------------------------------------------------
 \begin{document}
 
@@ -135,26 +144,87 @@
 
 %----------------------------- Homework Template Section ----------------------%
 
-\section{Homework Template}
+\section{Homeworks}
 \begin{frame}
-	\frametitle{Results}
-	
+	\frametitle{Template Example}
+	\centering
+	{\Large Click on \texttt{Homework\_Example.tex}}
+\end{frame}
+
+%------------------------------ Poster Template Section ---------------------------%
+
+\section{Posters}
+\begin{frame}
+	\frametitle{Poster Example}
+	\centering
+	{\Large Click on \texttt{Poster\_Example.tex}}
 \end{frame}
 
 
+%------------------------------ Presentation Template Section ---------------------------%
 
-%---------------------------------------------------
+\section{Presentations}
+\begin{frame}
+	\frametitle{Presentations Templates}
+	Take a look at  \\ \url{https://deic.uab.cat/~iblanes/beamer_gallery/} \\
+	for some default options. 
+	\pause
+	\\
+	This presentation is a modification on the Madrid theme. 
+\end{frame}
 
+\begin{frame}
+	\frametitle{Add Algorithms \& Use Pause}
+\textbf{Data:} $\by$ at $n$ spatial locations $\locs^O = \{\bs^O_1, \bs^O_2, \dots, \bs^O_n\}$.   \\
+	\textbf{Goal:} Quantify uncertainty of predictions $\hat{g}$ on evenly spaced grid $\locs^G = \{\bs^G_1, \bs_2^G, \dots, \bs_M^G\}$. \pause
+	\begin{algorithm}[H] 
+	\caption*{\textbf{Algorithm 1} Conditional Simulation Method}
+	{ \small \textbf{Input: } \text{Spatial data $\by$, their locations $\locs^O$, and prediction grid locations $\locs^G$. } }\\
+	{ \small \textbf{Output: } \text{Ensemble of $l$ conditional simulations $\bv = \{\bv_1, \dots, \bv_l\}$. $\bv_j \sim MVN(\hat{g}\left(\locs^G), \Sigma_{\hat{g}} \right)$.} } \pause
+		\begin{itemize}
+		\item { \small Compute spatial prediction at grid $\locs^G$ based on data $\by$, label this $\hat{g}(\locs^G)$.} \pause
+		\end{itemize}
+		{ \small \noindent \textbf{For $j = 1:l$}}
+		\begin{itemize}
+		\item { \small Simulate spatial process at the union of locations $\locs^S = \locs^G \cup \locs^O$, label this $g^S(\locs^S)$.}
+		\end{itemize}
+		{ \small \noindent \textbf{End}}
+		\vspace{1pt}
+	\end{algorithm}
+\end{frame}
 
+\begin{frame}
+	\frametitle{Others}
+	\begin{itemize}
+		\item Everything else is similar to poster. Be mindful how large your picture files are because that can slow down rendering. 
+		\item Make sure to cite things too \cite{PlaceHolderSource}.
+	\end{itemize}
+	
+	
+	
+\end{frame}
 
 %\appendix
 
-%\begin{frame}
-%\frametitle{References}
-%	\AtNextBibliography{\tiny}
-%	\printbibliography
-%\end{frame}
+\begin{frame}
+\frametitle{References}
+	\AtNextBibliography{\tiny}
+	\printbibliography
+\end{frame}
 
+\section*{Extras}
+\begin{frame}
+	\frametitle{Extra Slides for Questions or other Technical Details}
+	Simulation via Cholesky Decompositon \\
+	Cholesky decomposition: $\Sigma = BB\T$ \\
+	Obtain simulation: $g(\bs) = B\pmb{\epsilon}$, $\pmb{\epsilon} \sim \text{MVN}(0,I)$
+	\begin{align*}
+	\E[B\pmb{\epsilon}] &= B \E[\pmb{\epsilon}] = 0 \\
+	\Var(B\pmb{\epsilon}) &= B \Var(\pmb{\epsilon}) B\T = B I B\T = \Sigma
+	\end{align*} 
+	
+	Sometimes you include more slides than you actually present to be prepare to demonstrate difficult concepts. 
+\end{frame}
 
 
 \end{document}

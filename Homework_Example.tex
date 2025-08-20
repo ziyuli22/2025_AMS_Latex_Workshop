@@ -1,0 +1,96 @@
+
+\documentclass[12pt]{article}
+\pagestyle{plain} \topmargin -0.5in \textheight 9in \textwidth 6.5in
+\oddsidemargin -0in
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{mathrsfs} 
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage[normalem]{ulem}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{hyperref, kantlipsum}
+\usepackage{blkarray}
+\usepackage{wasysym}
+\usepackage{arydshln}
+\usepackage[framemethod=TikZ]{mdframed}
+
+\input{MinesColors.tex}
+\input{Definitions.tex}
+
+\newtheorem*{remark}{Remark}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+
+\begin{document}
+
+\begin{flushleft}
+
+\textbf{Department of Applied Mathematics and Statistics}
+
+\textbf{COLORADO SCHOOL OF MINES}\\
+
+
+MATH $531$: Theory of Linear Models \\
+Your Name
+\end{flushleft}
+
+\vspace{0.1in}
+
+\begin{center}
+{\bf Homework 06} \\
+{\bf Due Friday, February 21, 2025} \\
+\end{center}
+
+\vspace{0.1in}
+\subsubsection*{Some background: }
+Let $\bz$ be distributed $MN(0,I_m)$ then we know that $\bz^T \bz = \sum_{i=1}^m \bz_i^2$ is distributed $\chi^2(m)$.  -- a sum of iid $N(0,1)$ RVs. 
+  (We also know that $\chi^2(m)$ is a member of the gamma distribution family with shape $2m$ and scale $2$.)
+
+\begin{enumerate}
+\item[$\textbf{Problem 1}$]
+Let $M$ be an $n\times n$  projection matrix and let $k$ be the dimension of the subspace that $M$ projects onto. 
+ 
+\begin{enumerate}
+	\item For  the eigendecomposition $M= U D U^T$   show that the diagonal elements of $D$ must be either $0$ or $1$.\\ {\it \color{magenta} This is provides an alternative proof that $tr(M) =k$. }
+	\item Let  $U$ be an $n \times n$ orthonormal matrix and $\bz$ be distributed $MN(0,I_n)$. Show that $U^T\bz$ is also  distributed $MN(0,I_n)$.
+	\item Let $\bz$ be distributed $MN(0,I_n)$  show that  $\bz^T M \bz $ is  distributed $\chi^2(k)$.
+\end{enumerate}
+
+\noindent\rule{0.9\textwidth}{0.75pt}
+
+\item[Answer:] 
+\begin{enumerate}
+	\item We use the fact that... 
+	\begin{align*}
+		XXXXXXXX &= \text{Something else here}  \\
+		XXXXXXXX &= UDU\T
+	\end{align*}
+	We can see that ...., therefore diagonal elements of $D$ must be either $0$ or $1$. $\qquad \square$
+	
+	\item $U\T \bz $ satisfies the definition that says $XXXXXX \qquad \square$
+	\item \textcolor{coloradoRed}{Comments: \\ When writing proofs, make sure to say Q.E.D. or $\square$ to complete the proof. This symbol that ends the proof should be the last thing on that homework sub-problem. When writing equations, make sure to align all equal signs. Keep every sub-part of the problem on the same page if possible. }
+
+\clearpage
+
+\item[$\textbf{Problem 2}$] What is $2(3 + 7)$? 
+
+\noindent\rule{0.9\textwidth}{0.75pt}
+
+\item[Answer:] 
+There are many ways to find this quantity, one way is by distributing first:
+	\begin{align*}
+		2(3 + 7) &= 2(3) + 2(7) \\
+		\shortintertext{And then, multiply}
+		&= 6 + 14
+		\shortintertext{Then, add the two numbers $6$ and $14$ together we get}
+		\Aboxed{2(3 + 7)  &= 20}
+	\end{align*}
+	\textcolor{coloradoRed}{Comments: \\ It is generally better to start a new problem on a new page. You can make comments while in the aligned equation environment, always box your answers! In aligned envrionments, you have to use \texttt{Aboxed\{\}} instead of \texttt{boxed\{\}} }. 
+ 
+ \end{document}
+ 
